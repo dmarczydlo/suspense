@@ -1,25 +1,29 @@
-import React from 'react';
-import {BrowserRouter as Router, Route, Switch} from 'react-router-dom';
-import {RouteWithSubRoutes, routes} from './config';
-import NotFound from '../sites/notFound';
-import Layout from '../layout';
+import React from "react";
+import { BrowserRouter as Router, Route, Link } from "react-router-dom";
+import Home from '../sites/home';
+import User from '../sites/user';
 
-const RouterElements = () => {
+const  RouterComponent = () => {
     return (
-        <Router>
-            <Layout>
-                <Switch>
-                    {routes.map((route) => (
-                        <RouteWithSubRoutes
-                            {...route}
-                            key={route.path}
-                        />
-                    ))}
-                    <Route component={NotFound} />
-                </Switch>
-            </Layout>
-        </Router>
+      <Router>
+        <div>
+          <ul>
+            <li>
+              <Link to="/">Home</Link>
+            </li>
+            <li>
+              <Link to="/user">User</Link>
+            </li>
+          </ul>
+  
+          <hr />
+  
+          <Route exact path="/" component={Home} />
+          <Route path="/user" component={User} />
+  
+        </div>
+      </Router>
     );
-};
+  }
 
-export default RouterElements;
+  export default RouterComponent;

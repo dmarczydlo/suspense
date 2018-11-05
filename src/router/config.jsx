@@ -1,7 +1,9 @@
-import React, {lazy} from 'react';
+import React, {lazy, Suspense} from 'react';
 import {Route} from 'react-router-dom';
 
 import Home from '../sites/home';
+// const User = lazy(() => import('../sites/user')); 
+import User from '../sites/user';
 
 export const routes = [
     {
@@ -10,12 +12,17 @@ export const routes = [
         path: '/'
     },
     {
-        component: Home,
-        path: '/child/:id'
+        component: User,
+        path: '/user'
     }
 ];
 
 export const RouteWithSubRoutes = (route, key) => (
+    // <Suspense fallback={
+    //     <div>
+    //         {'Loading'}
+    //     </div>
+    // }>
     <Route
         exact={route.exact}
         key={key}
@@ -27,4 +34,5 @@ export const RouteWithSubRoutes = (route, key) => (
             />
         )}
     />
+    // </Suspense>
 );
