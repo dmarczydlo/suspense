@@ -2,7 +2,7 @@
   "name": "suspense",
   "version": "0.0.1",
   "description": "",
-  "main": "index.jsx",
+  "main": "./src/index.jsx",
   "engines": {
     "node": ">=7.6.0"
   },
